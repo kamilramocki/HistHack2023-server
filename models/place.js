@@ -11,13 +11,20 @@ const Place = mongoose.model('Place', {
         url: String,
         type: String,
     }],
-    photos: [{ type: Schema.Types.ObjectId, ref: 'Photo' }],
+    photos: [{
+        label: String,
+        description: String,
+        fileName: String,
+    }],
     events: [{
         date: Date,
         name: String,
         description: String,
     }],
-    models: [{ type: Schema.Types.ObjectId, ref: 'Model' }],
+    models: [{
+        label: String,
+        fileName: String,
+    }],
 });
 
 module.exports = { Place };
