@@ -14,4 +14,15 @@ placesRouter.get('/places/:id', async (req, res) => {
     res.json(place);
 });
 
+placesRouter.post('/places', async (req, res) => {
+
+    const { title, content } = req.body;
+
+    const place = await Place.create({
+        title, content,
+    });
+
+    res.redirect('/places/' + place._id);
+});
+
 module.exports = { placesRouter };
