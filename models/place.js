@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { Schema } = require('mongoose');
 const Place = mongoose.model('Place', {
     name: String,
     cords: {
@@ -8,8 +7,8 @@ const Place = mongoose.model('Place', {
     },
     links: [{
         title: String,
-        url: String,
-        type: String,
+        link: String,
+        contentType: String,
     }],
     photos: [{
         label: String,

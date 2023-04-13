@@ -9,7 +9,7 @@ placesRouter.get('/places', async (req, res) => {
 
 placesRouter.get('/places/:id', async (req, res) => {
     const place = await Place.findOne({
-        place: req.params.id,
+        _id: req.params.id,
     });
     res.json(place);
 });
