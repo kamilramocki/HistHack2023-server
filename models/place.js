@@ -1,10 +1,7 @@
 const mongoose = require('mongoose');
 const Place = mongoose.model('Place', {
     name: String,
-    cords: {
-        lat: Number,
-        long: Number,
-    },
+    cords: [Number],
     links: [{
         title: String,
         link: String,

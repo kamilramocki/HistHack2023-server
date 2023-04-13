@@ -7,6 +7,17 @@ placesRouter.get('/places', async (req, res) => {
     res.json(places);
 });
 
+placesRouter.get('/places/search', async (req, res) => {
+
+    const { lat, long } = req.query;
+
+    const places = await Place.find({
+        cords: { $geoWithin: { $centerSphere: [ [lat, long ], 3 / 6378 ] } }
+    })
+
+    res.json(places)
+})
+
 placesRouter.get('/places/:id', async (req, res) => {
     const place = await Place.findOne({
         _id: req.params.id,
