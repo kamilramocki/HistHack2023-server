@@ -23,7 +23,7 @@ placesRouter.post('/places', async (req, res) => {
         photos: [],
     });
 
-    res.redirect('/places/' + place._id);
+    res.json(place);
 });
 
 module.exports = { placesRouter };
