@@ -7,8 +7,8 @@ const Place = mongoose.model('Place', {
     },
     links: [{
         title: String,
-        url: String,
-        type: String,
+        link: String,
+        contentType: String,
     }],
     photos: [{
         label: String,

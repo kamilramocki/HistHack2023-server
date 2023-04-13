@@ -4,12 +4,12 @@ const linksRouter = express.Router();
 
 linksRouter.post('/places/:id/links', async (req, res) => {
 
-    const { title, url, type } = req.body;
+    const { title, link, contentType } = req.body;
 
-    const place = await Place.findOne({ place: req.params.id });
-
+    const place = await Place.findOne({ _id: req.params.id });
+    console.log(place);
     place.links.push({
-        title, url, type,
+        title, link, contentType,
     });
 
     res.json(place);

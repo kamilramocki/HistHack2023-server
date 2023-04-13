@@ -18,10 +18,8 @@ placesRouter.post('/places', async (req, res) => {
 
     const { name, cords, links, events, models } = req.body;
 
-    console.log(links);
-
     const place = await Place.create({
-        name, cords, links: [...links], events, models,
+        name, cords, links, events, models,
         photos: [],
     });
 
