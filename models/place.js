@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { Schema } = require('mongoose');
 const Place = mongoose.model('Place', {
     name: String,
     cords: {

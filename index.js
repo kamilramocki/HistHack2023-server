@@ -3,11 +3,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 const { placesRouter } = require('./endpoints/place');
+const { linksRouter } = require('./endpoints/links');
 const app = express();
 
 app.use(bodyParser.json());
 
 app.use(placesRouter);
+app.use(linksRouter);
 
 const start = async () => {
     console.log('Connecting to database...');
