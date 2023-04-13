@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const { placesRouter } = require('./endpoints/place');
 const { linksRouter } = require('./endpoints/links');
 const { modelsRouter } = require('./endpoints/models');
+const { eventsRouter } = require('./endpoints/events');
 const app = express();
 
 app.use(bodyParser.json());
@@ -12,6 +13,7 @@ app.use(bodyParser.json());
 app.use(placesRouter);
 app.use(linksRouter);
 app.use(modelsRouter);
+app.use(eventsRouter);
 
 const start = async () => {
     console.log('Connecting to database...');
