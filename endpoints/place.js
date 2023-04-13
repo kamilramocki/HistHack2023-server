@@ -16,10 +16,11 @@ placesRouter.get('/places/:id', async (req, res) => {
 
 placesRouter.post('/places', async (req, res) => {
 
-    const { title, content } = req.body;
+    const { name, cords, links, events, models } = req.body;
 
     const place = await Place.create({
-        title, content,
+        name, cords, links, events, models,
+        photos: [],
     });
 
     res.redirect('/places/' + place._id);
