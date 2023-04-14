@@ -1,5 +1,0 @@
-const QuestionTypes = {
-    SINGLE_CHOICE: 'SINGLE_CHOICE',
-    MULTIPLE_CHOICE: 'MULTIPLE_CHOICE',
-    TRUE_FALSE: 'TRUE_FALSE',
-};

@@ -7,7 +7,13 @@ placesRouter.get('/places', async (req, res) => {
     res.json(places);
 });
 
-placesRouter.get('/places/search', async (req, res) => {
+placesRouter.get('/places/search/by-name/:query', async (req, res) => {
+    const { query } = req.params;
+    const places = await Place.find({name: {'$regex': query, '$options': 'i'}});
+    res.json(places);
+});
+
+placesRouter.get('/places/search/by-location', async (req, res) => {
 
     const { lat, long } = req.query;
 
@@ -27,10 +33,10 @@ placesRouter.get('/places/:id', async (req, res) => {
 
 placesRouter.post('/places', async (req, res) => {
 
-    const { name, cords, links, events, models } = req.body;
+    const { name, address, cords, links, events, models } = req.body;
 
     const place = await Place.create({
-        name, cords, links, events, models,
+        name, address, cords, links, events, models,
         photos: [],
     });
 
